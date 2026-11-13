@@ -1,7 +1,6 @@
 *, *::before, *::after { box-sizing: border-box; }
 
 html, body {
-    height: 100%;
     min-width: 300px;
     margin: 0;
     background: rgb(253, 235, 238);
@@ -46,6 +45,31 @@ html, body {
     margin-right: 6px;
 }
 
+
+/*columns styling*/
+#columns {
+    display: grid;
+    gap: 10px;
+    flex:1;
+    align-content: start;
+}
+
+#main {
+    min-width: 0;
+}
+
+#sidebar {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 5px;
+    align-items: start;
+    align-content: start;
+}
+
+#sidebar .box {
+    margin: 0;
+}
+
 /*profile-section*/
 #profile-header {
     display: flex;
@@ -55,33 +79,51 @@ html, body {
     padding: 10px;
 }
 #profile-pic {
-    width: 90px;
-    height: 90px;
+    width: 100%;
+    max-width: 150px;
+    aspect-ratio: 1;
     border: 1px solid #bbb;
     flex-shrink: 0;
 }
 #profile-info {
+    text-align: center;
     margin: 0 0 4px;
 }
 
-/*columns styling*/
-#columns {
-    display: grid;
-    gap: 10px;
-    flex:1;
+/*buttons*/
+.buttons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0px;
 }
 
-@media (min-width: 800px) {
-    #columns {
-        grid-template-columns: 250px 1fr;
-        gap: 10px;
-    }
+.buttons li {
+    line-height: 0;
 }
 
-#main {
-    min-width: 0;
+.buttons img,
+.button-placeholder {
+    width: 88px;
+    height: 31px;
 }
-#sidebar {
+
+.buttons img {
+    display: block;
+    image-rendering: pixelated;
+}
+
+.button-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #bbb;
+    font-size: 10px;
+    line-height: 1;
+    color: #999;
 }
 
 /*generator section*/
@@ -116,13 +158,18 @@ html, body {
 }
 
 /** PICS PAGE CSS **/
+#pics-page #wrapper {
+    min-height: 0;
+}
 #pics-gallery {
     margin: 40px auto;
-    max-width: 1400px;
+    max-width:1400px;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     justify-items: center;
     gap: 150px 50px;
+    align-items: start;
+    align-content: start;
 }
 
 .pic {
@@ -135,4 +182,51 @@ html, body {
     width: 100%;
     aspect-ratio: 1;
     object-fit: cover;
+}
+
+/**blog page**/
+#field {
+    position:relative;
+    height:auto;
+    background: url("images/pokemongrass.gif") repeat;
+    background-size: 128px 128px;
+    image-rendering: pixelated; 
+}
+.animal {
+    position:absolute;
+    background: none;
+    border: 0px;
+    transform: translate(-50%, -50%);
+}
+.animal img {
+    display: block;
+    width: 128px;
+    image-rendering: pixelated;
+}
+.animal:hover img {
+    animation: hop 0 ease infinite;
+}
+@keyframes hop {
+    0% {
+        transform: translatey(0px);
+    }
+    50% {
+        transform: translatey(-2px);
+    }
+    100% {
+        transform: translatey(0px);
+    }
+}
+/** DESKTOP ASPECT RATIO **/
+@media (min-width: 800px) {
+    #sidebar {
+        grid-template-columns: 1fr;
+    }
+    #profile-header {
+        flex-direction: column;
+    }
+    #columns {
+        grid-template-columns: 200px 1fr;
+        gap: 10px;
+    }
 }

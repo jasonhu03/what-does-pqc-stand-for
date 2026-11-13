@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module" src="main.js"></script>
     <title>what does PQC mean?</title>
     <link rel="stylesheet" href="main.css">
 </head>
@@ -12,27 +13,35 @@
     <nav id="top-nav" class="box">
         <a href="#">Home</a>
         <a href="#">PQC</a>
-        <a href="#">Blog</a>
+        <a href="blog.html">Blog</a>
         <a href="pics.html">Pics</a>
     </nav>
 
     <div id="columns">
         <aside id="sidebar">
-            <div>
-            <div class="box-title">SIDE BAR</div>
-            <div id="profile-header" class="box">
-                <div id="profile-pic"></div>
-                <div id="profile-info">meep</div>
-                <div class="box-body">yip yip</div>
+            <div class="box">
+                <div class="box-title">SIDE BAR</div>
+                <div id="profile-header">
+                    <div id="profile-pic"></div>
+                    <div id="profile-info">
+                        <h2>Daine &lt;3</h2>
+                        <p>From: Brisbane, Australia</p>
+                        <p>Currently: everywhere</p>
+                    </div>
+                </div>
             </div>
-            </div>
-            <div>
-            <div class="box-title">SIDE BAR</div>
-            <div id="profile-header" class="box">
-                <div id="profile-pic"></div>
-                <div id="profile-info">meep</div>
-                <div class="box-body">yip yip</div>
-            </div>
+            <div class="box" id="buttons-box">
+                <div class="box-title">buttons</div>
+                <div class="box-body">
+                    <ul class="buttons">
+                        <li><span class="button-placeholder">88x31</span></li>
+                        <li><span class="button-placeholder">88x31</span></li>
+                        <li><span class="button-placeholder">88x31</span></li>
+                        <li><span class="button-placeholder">88x31</span></li>
+                        <li><span class="button-placeholder">88x31</span></li>
+                        <li><span class="button-placeholder">88x31</span></li>
+                    </ul>
+                </div>
             </div>
         </aside>
 
@@ -58,7 +67,7 @@
                     </div>
 
                     <button type="button" id="generate-button">generate</button>
-
+                    <div id="pqc-output"></div>
                 </div>
             </section>
         </main>
