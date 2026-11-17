@@ -1,17 +1,60 @@
 async function loadText(file) {
     const response = await fetch(file);
     const words = await response.json();
-    const count = Object.keys(words).length;
-    console.log(words);
+    return words
 }
 
-function generatePQC(){
+//phrase generator
+function showPQC(){
     const p = document.querySelector("#generate-button");
-    const output = document.querySelector("#pqc-output");
+    const canvas = document.getElementById("pqc-output");
+    const ctx = canvas.getContext("2d");
     p.addEventListener("click", ()=>{
-        output.textContent = "Hello";
+        let phrase = generate();
+        ctx.font = "50px Arial";
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillText(phrase[0] + " " + phrase[1] + " " + phrase[2], 8, 100);
     });
-    console.log("pp");
 }
-loadText("words.json");
-generatePQC();
+
+const words = await loadText("words2.json")
+console.log(words.p)
+function generate() {
+    const templates = [["adj", "adj", "noun"]];
+    const t = templates[Math.floor(Math.random() * Object.keys(templates).length)];
+    const pqc = [words.p[t[0]][Math.floor(Math.random() * Object.keys(words.p[t[0]]).length)], words.q[t[1]][Math.floor(Math.random() * Object.keys(words.q[t[1]]).length)], words.c[t[2]][Math.floor(Math.random() * Object.keys(words.c[t[2]]).length)]];
+    return pqc;
+}
+
+//share feature
+let currentFile = null;
+function share(){
+    document.querySelector("#share-button").addEventListener("click", async ()=>{
+        const canvas = document.getElementById("pqc-output");
+        const output = document.querySelector("#p")
+        canvas.toBlob(async (blob) => {
+            const file = new File([blob], "image.png", { type: "image/png" });
+            if (!navigator.canShare) {
+                output.textContent = `Your browser doesn't support the Web Share API.`;
+                return;
+            }
+
+            if (navigator.canShare({files:[file]})) {
+                try {
+                await navigator.share({
+                    files: [file]
+                });
+                output.textContent = "Shared!";
+                } catch (error) {
+                output.textContent = `Error: ${error.message}`;
+                }
+            } else {
+                output.textContent = `Your system doesn't support sharing these files.`;
+            }
+
+        }, "image/png");
+    });
+}
+
+share();
+showPQC();

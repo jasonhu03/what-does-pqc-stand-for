@@ -156,6 +156,14 @@ html, body {
     padding: 0 12px;
     font-size: 16px;
 }
+#pqc-output {
+    display: block;
+    justify-self: center;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+    image-rendering: pixelated;
+}
 
 /** PICS PAGE CSS **/
 #pics-page #wrapper {
