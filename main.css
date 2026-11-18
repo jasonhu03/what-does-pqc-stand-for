@@ -60,7 +60,7 @@ html, body {
 
 #sidebar {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 5px;
     align-items: start;
     align-content: start;
@@ -71,6 +71,9 @@ html, body {
 }
 
 /*profile-section*/
+#profile-box {
+}
+
 #profile-header {
     display: flex;
     flex-direction: row;
@@ -199,7 +202,7 @@ html, body {
     height:auto;
     background: url("images/pokemongrass.gif") repeat;
     background-size: 128px 128px;
-    image-rendering: pixelated; 
+    image-rendering: crisp-edges; 
 }
 .animal {
     position:absolute;
