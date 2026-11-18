@@ -3,6 +3,16 @@ async function loadText(file) {
     const words = await response.json();
     return words
 }
+const words = await loadText("words2.json")
+console.log(words.p)
+
+async function loadImage(src) {
+    const img = new Image();
+    img.src = src;
+    await img.decode();
+    return img;
+}
+const img = await loadImage("background.png");
 
 //phrase generator
 function showPQC(){
@@ -11,14 +21,15 @@ function showPQC(){
     const ctx = canvas.getContext("2d");
     p.addEventListener("click", ()=>{
         let phrase = generate();
-        ctx.font = "50px Arial";
+        ctx.font = "100px Arial";
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillText(phrase[0] + " " + phrase[1] + " " + phrase[2], 8, 100);
+        ctx.imageSmoothingEnabled = false;
+        ctx.drawImage(img, 0,0, canvas.width, canvas.height);
+        ctx.fillText(phrase[0] + " " + phrase[1] + " " + phrase[2], 50, 500);
     });
 }
 
-const words = await loadText("words2.json")
-console.log(words.p)
+
 function generate() {
     const templates = [["adj", "adj", "noun"]];
     const t = templates[Math.floor(Math.random() * Object.keys(templates).length)];
