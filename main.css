@@ -163,6 +163,7 @@ html, body {
     max-width: 400px;
     aspect-ratio: 1;
     image-rendering: pixelated;
+    margin: 0, auto;
 }
 
 /** PICS PAGE CSS **/
