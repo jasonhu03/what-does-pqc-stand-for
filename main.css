@@ -33,7 +33,16 @@ html, body {
 .box-body {
     padding: 10px;
 }
-
+#pqc-page{
+    background: url("pqcbg3.png");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+    background-size: cover;    
+    display: block;
+    width: 100%;
+    height: auto;
+}
 /*nav bar*/
 #top-nav {
     background: rgb(255, 213, 220);
@@ -159,7 +168,20 @@ html, body {
     padding: 0 12px;
     font-size: 16px;
 }
+#generate-button {
+    max-width: 150px;
+    max-height: 150px;
+    border: 0px;
+    background: transparent;
+    margin: 0;
+}
+#generate-button img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
 #pqc-output {
+    height:auto;
     display: block;
     justify-self: center;
     width: 100%;
@@ -203,6 +225,18 @@ html, body {
     background: url("images/pokemongrass.gif") repeat;
     background-size: 128px 128px;
     image-rendering: crisp-edges; 
+}
+#wishing-well{
+    display: grid;
+    place-items: center;
+    margin-top: 10dvh;
+}
+#wishing-well button{
+    padding:0px;
+}
+#wishing-well img{
+    display: block;
+    width: 300px;
 }
 .animal {
     position:absolute;

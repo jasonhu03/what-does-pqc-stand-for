@@ -3,7 +3,7 @@ async function loadText(file) {
     const words = await response.json();
     return words
 }
-const words = await loadText("words2.json")
+const words = await loadText("words.json")
 console.log(words.p)
 
 async function loadImage(src) {
@@ -25,13 +25,15 @@ function showPQC(){
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.imageSmoothingEnabled = false;
         ctx.drawImage(img, 0,0, canvas.width, canvas.height);
-        ctx.fillText(phrase[0] + " " + phrase[1] + " " + phrase[2], 50, 500);
+        phrase.forEach((word, i) => {
+            ctx.fillText(word, 50, 500 + i * 100);
+        });
     });
 }
 
 
 function generate() {
-    const templates = [["adj", "adj", "noun"]];
+    const templates = [["adj", "adj", "noun"], ["noun", "verb", "noun"], ["noun", "adv",  "verb"], ["adj",  "noun", "verb"], ["adj",  "noun", "noun"], ["intj", "adj",  "noun"],["noun", "noun", "noun"], ];
     const t = templates[Math.floor(Math.random() * Object.keys(templates).length)];
     const pqc = [words.p[t[0]][Math.floor(Math.random() * Object.keys(words.p[t[0]]).length)], words.q[t[1]][Math.floor(Math.random() * Object.keys(words.q[t[1]]).length)], words.c[t[2]][Math.floor(Math.random() * Object.keys(words.c[t[2]]).length)]];
     return pqc;
@@ -44,7 +46,7 @@ function share(){
         const canvas = document.getElementById("pqc-output");
         const output = document.querySelector("#p")
         canvas.toBlob(async (blob) => {
-            const file = new File([blob], "image.png", { type: "image/png" });
+            const file = new File([blob], "image.png", { type: "image/jpeg" });
             if (!navigator.canShare) {
                 output.textContent = `Your browser doesn't support the Web Share API.`;
                 return;
