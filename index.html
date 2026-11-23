@@ -21,7 +21,7 @@
             <div class="box" id="profile-box">
                 <div class="box-title">SIDE BAR</div>
                 <div id="profile-header">
-                    <div id="profile-pic"></div>
+                    <div id="profile-pic"><img src="images/profile.jpg"/></div>
                     <div id="profile-info">
                         <h2>Daine &lt;3</h2>
                         <p>From: Melbroune, Australia</p>
@@ -33,9 +33,9 @@
                 <div class="box-title">buttons</div>
                 <div class="box-body">
                     <ul class="buttons">
-                        <li><span class="button-placeholder">88x31</span></li>
-                        <li><span class="button-placeholder">88x31</span></li>
-                        <li><span class="button-placeholder">88x31</span></li>
+                        <li><a class="button-placeholder" href="https://open.spotify.com/track/6B8XcuiJW6IR8YUEfwCfbi" target="_blank"><img src="88x31/jjj-now.gif"/></a></li>
+                        <li><a class="button-placeholder" href="https://discord.com/invite/daine" target="_blank"><img src="88x31/discord-no-way.gif"/></a></li>
+                        <li><a class="button-placeholder"><img src="88x31/miku.gif"/></a></li>
                         <li><span class="button-placeholder">88x31</span></li>
                         <li><span class="button-placeholder">88x31</span></li>
                         <li><span class="button-placeholder">88x31</span></li>
@@ -50,26 +50,11 @@
                 <div class="box-body">
                     <h2>what does PQC mean?</h2>
 
-                    <div id="inputs">
-                        <div class="gen-field">
-                            <label for="p-input">P=</label>
-                            <input type="text" id="p-input">
-                        </div>
-                        <div class="gen-field">
-                            <label for="q-input">Q=</label>
-                            <input type="text" id="q-input">
-                        </div>
-                        <div class="gen-field">
-                            <label for="c-input">C=</label>
-                            <input type="text" id="c-input">
-                        </div>
-                    </div>
-
                     <button type="button" id="generate-button">
                         <image src="images/question.png" />
                     </button>
-                    <canvas id="pqc-output" width="1080" height="1080"></canvas>
-                    <button type="button" id="share-button">SHARE</button>
+                    <canvas id="pqc-output" width="1080" height="1080" hidden></canvas>
+                    <button type="button" id="share-button" hidden>SHARE</button>
                     <div id="p"></div>
                 </div>
             </section>
@@ -77,7 +62,7 @@
     </div>
 
     <footer id="footer" class="box">
-        <div class="box-body">GIFS HERE</div>
+        <marquee direction="left">in endless awe and agony     in endless awe and agony     in endless awe and agony     in endless awe and agony</marquee>
     </footer>
 </div>
 

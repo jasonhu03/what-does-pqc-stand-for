@@ -1,4 +1,5 @@
 *, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 html, body {
     min-width: 300px;
@@ -97,6 +98,12 @@ html, body {
     border: 1px solid #bbb;
     flex-shrink: 0;
 }
+#profile-pic img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; 
+}
 #profile-info {
     text-align: center;
     margin: 0 0 4px;
@@ -147,26 +154,6 @@ html, body {
     font-weight: normal;
     font-size: 24px;
     margin: 0 0 25px;
-}
-#inputs {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px 16px;
-    margin-bottom: 25px;
-}
-.gen-field {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-.gen-field input {
-    width: 110px;
-    height: 30px;
-    border: 1px solid #bbb;
-    border-radius: 16px;
-    padding: 0 12px;
-    font-size: 16px;
 }
 #generate-button {
     max-width: 150px;

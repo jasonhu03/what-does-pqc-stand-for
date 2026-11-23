@@ -20,6 +20,8 @@ function showPQC(){
     const canvas = document.getElementById("pqc-output");
     const ctx = canvas.getContext("2d");
     p.addEventListener("click", ()=>{
+        document.querySelector("#share-button").hidden = false;
+        canvas.hidden = false;
         let phrase = generate();
         ctx.font = "100px Arial";
         ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -68,6 +70,8 @@ function share(){
         }, "image/png");
     });
 }
+
+//88x31 buttons
 
 share();
 showPQC();
