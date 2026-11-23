@@ -40,10 +40,13 @@ function showPQC(){
             ctx.fillText(word, 50, 500 + i * 100);
         });
         canvas.toBlob(async (blob) => {
-            currentFile = new File([blob], "image.png", { type: "image/jpeg" });
+            currentFile = new File([blob], "pqc.png", { type: "image/png" });
         }, "image/png");
     });
 }
+const res = await fetch("background.png");
+const blob = await res.blob();
+const file = new File([blob], "test.png", { type: "image/png" });
 
 //share feature
 function share(){
@@ -54,11 +57,10 @@ function share(){
             output.textContent = `Your browser doesn't support the Web Share API.`;
             return;
         }
-
         if (navigator.canShare({files:[currentFile]})) {
             try {
             await navigator.share({
-                files: [currentFile]
+                files: [file]
             });
             output.textContent = "Shared!";
             } catch (error) {
